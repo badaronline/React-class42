@@ -1,0 +1,136 @@
+body {
+  font-family: HelveticaNow, Helvetica, sans-serif;
+}
+
+.App {
+  margin: 8px;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+img {
+  border-style: none;
+}
+
+.categories {
+  display: flex;
+}
+
+.categories--item {
+  background-color: #efeff0;
+  cursor: pointer;
+  font-weight: 700;
+  margin: 2px;
+  padding: 12px;
+}
+
+.categories--item-selected {
+  background-color: #bdbdc1;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+}
+
+.products--item {
+  margin: 8px;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .products--item {
+    width: calc(50% - 16px);
+  }
+}
+
+@media (min-width: 1000px) {
+  .products--item {
+    width: calc(33% - 16px);
+  }
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product--image {
+  margin-bottom: auto;
+  margin-top: auto;
+  max-height: 300px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.product--title {
+  overflow: hidden;
+  padding-top: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Product detail */
+.product-details {
+  font-weight: 300;
+}
+.title-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.title-container--title {
+  margin-right: auto;
+}
+
+.product-details--information {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-details--image {
+  min-width: 50%;
+}
+
+.product-image--container {
+  position: relative;
+}
+
+.product-details--information img {
+  max-height: 80vh;
+  order: 0;
+}
+
+.product-details--information img {
+  max-height: 80vh;
+  order: 0;
+}
+.product-image {
+  margin-bottom: auto;
+  margin-top: auto;
+  max-height: 300px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.product-details--description {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+@media (min-width: 600px) {
+  .product-details--information {
+    flex-direction: row-reverse;
+  }
+}
