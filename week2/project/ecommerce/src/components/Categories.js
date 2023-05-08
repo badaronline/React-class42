@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export const Categories = ({ handleCategoryNameClick }) => {
-  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(null);
+  const [selectedCategoryName, setSelectedCategoryName] = useState(null);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -15,19 +15,20 @@ export const Categories = ({ handleCategoryNameClick }) => {
     getCategories();
   }, []);
 
+  const handleCategoryItemClick = (category) => {
+    setSelectedCategoryName(category);
+    handleCategoryNameClick(category);
+  };
+
   return (
     <div className='categories'>
-      {categories.map((category, index) => (
+      {categories.map((category) => (
         <div
-          key={index}
-          className={
-            selectedCategoryIndex === index
-              ? 'categories--item categories--item-selected'
-              : 'categories--item'
+          key={category}
+          className={`categories--item ${selectedCategoryName === category ? 'categories--item-selected' : ''}`
           }
-          onClick={e => {
-            setSelectedCategoryIndex(index);
-            handleCategoryNameClick(e);
+          onClick={() => {
+            handleCategoryItemClick(category);
           }}
         >
           {category}
