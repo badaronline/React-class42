@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export const ProductDetails = () => {
   const [product, setProduct] = useState({});
@@ -16,7 +16,7 @@ export const ProductDetails = () => {
         const response = await fetch(`https://fakestoreapi.com/products/${id}`);
 
         if (!response.ok) {
-          throw new Error('Failed to fetch product');
+          throw new Error("Failed to fetch product");
         }
 
         const product = await response.json();
@@ -32,24 +32,24 @@ export const ProductDetails = () => {
   }, [id]);
 
   return (
-    <div className='product-details'>
+    <div className="product-details">
       {isLoading && <div>Loading...</div>}
       {error && <div>Error: {error}</div>}
 
-      <div className='title-container'>
-        <h1 className='title-container--title'>{product.title}</h1>
+      <div className="title-container">
+        <h1 className="title-container--title">{product.title}</h1>
       </div>
-      <div className='product-details--information'>
-        <div className='product-details--image'>
-          <div className='product-image--container'>
+      <div className="product-details--information">
+        <div className="product-details--image">
+          <div className="product-image--container">
             <img
-              className='product-image'
+              className="product-image"
               src={product.image}
               alt={product.title}
             />
           </div>
         </div>
-        <p className='product-details--description'>{product.description}</p>
+        <p className="product-details--description">{product.description}</p>
       </div>
     </div>
   );
