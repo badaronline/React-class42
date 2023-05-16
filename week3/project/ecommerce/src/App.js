@@ -1,17 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-// this are the imports needed to work
-import { BrowserRouter, Link, Route, Routes as Switch } from "react-router-dom";
+import { BrowserRouter, NavLink, Route, Routes as Switch } from "react-router-dom";
 import Favorites from "./components/favorite";
 import Home from "./components/Home";
 import { FavoritesProvider } from "./context/FavoriteContext";
 
 function App() {
-  const [activeLink, setActiveLink] = useState("/");
-
-  const handleLinkClick = (link) => {
-    setActiveLink(link);
-  };
   return (
     <BrowserRouter>
       <div className="App">
@@ -19,36 +13,27 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link
+              <NavLink
                 to="/"
-                style={{
-                  fontWeight: activeLink === "/" ? "bold" : "normal",
-                  textDecoration: activeLink === "/" ? "underline" : "none",
-                }}
-                onClick={() => handleLinkClick("/")}
+                exact
+                activeClassName="active-link"
               >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/favorites"
-                style={{
-                  fontWeight: activeLink === "/favorites" ? "bold" : "normal",
-                  textDecoration:
-                    activeLink === "/favorites" ? "underline" : "none",
-                }}
-                onClick={() => handleLinkClick("/favorites")}
+                activeClassName="active-link"
               >
                 Favorites
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
 
         <Switch>
           <Route path="/" element={<Home />} />
-
           <Route
             path="/favorites"
             element={

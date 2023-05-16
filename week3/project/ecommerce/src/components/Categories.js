@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useFetch } from "../customHook/useFetch";
 
 export const Categories = ({ handleCategoryNameClick }) => {
-  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const {
     data: categoryData,
     error,
@@ -20,16 +20,16 @@ export const Categories = ({ handleCategoryNameClick }) => {
           <p className="loading">Loading...</p>
         </div>
       ) : (
-        categoryData.map((category, index) => (
+        categoryData.map((category) => (
           <div
-            key={index}
+            key={category}
             className={
-              selectedCategoryIndex === index
+              selectedCategory === category
                 ? "categories--item categories--item-selected"
                 : "categories--item"
             }
             onClick={() => {
-              setSelectedCategoryIndex(index);
+              setSelectedCategory(category);
               handleCategoryNameClick(category);
             }}
           >
